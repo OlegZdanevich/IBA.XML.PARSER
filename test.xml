@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book>
+        <author>
+            <nameAuther>Oleg</nameAuther>
+            <lastnameAuther>Zdanevich</lastnameAuther>
+        </author>
+        <name>
+            art of war
+        </name>
+        <price>12</price>
+    </book>
+    <book>
+        <author>
+            <nameAuther>Oleg1</nameAuther>
+            <lastnameAuther>Zdanevich</lastnameAuther>
+        </author>
+        <name>
+            <eur>bla bla bla</eur>
+        </name>
+        <price>2</price>
+    </book>
+    <book>
+        <author>
+            <nameAuther>Oleg1</nameAuther>
+            <lastnameAuther>Zdanevich</lastnameAuther>
+        </author>
+        <name>N 3</name>
+        <price>6</price>
+    </book>
+</books>
