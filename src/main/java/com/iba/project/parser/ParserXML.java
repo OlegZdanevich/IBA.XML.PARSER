@@ -16,12 +16,12 @@ import java.util.List;
 
 public class ParserXML {
     public static List<Book> parse(InputStream stream) {
+
         try {
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
             XMLEventReader reader = inputFactory.createXMLEventReader(stream);
 
-            parseToTable(reader);
-
+            return parseToTable(reader);
 
         } catch (XMLStreamException exception) {
             //TO DO LOG
@@ -38,7 +38,7 @@ public class ParserXML {
         Person auther = null;
 
         while (reader.hasNext()) {
-            // получаем событие (элемент) и разбираем его по атрибутам
+
 
 
             XMLEvent xmlEvent = reader.nextEvent();
@@ -94,6 +94,6 @@ public class ParserXML {
         }
 
 
-        return new ArrayList<>();
+        return books;
     }
 }
