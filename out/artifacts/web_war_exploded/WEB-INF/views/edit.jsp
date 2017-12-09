@@ -15,6 +15,15 @@
 </head>
 <body>
 <div id="uac">
+
+    <c:if test="${sessionScope.id>=0}">
+        <h1>Edit Book</h1>
+    </c:if>
+
+    <c:if test="${sessionScope.id<0}">
+        <h1>Add New Book</h1>
+    </c:if>
+
     <form action="changeElement" class="form-horizontal" role="form" method="POST">
         <input type="hidden" name="action" value="Update">
 

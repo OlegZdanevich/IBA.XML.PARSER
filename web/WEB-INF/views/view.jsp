@@ -20,6 +20,10 @@
 <body>
 
 <div id="uac">
+
+    <c:if test="${requestScope.answer==-1}">
+        <h3>There some problems with editing</h3>
+    </c:if>
     <table class="table table-striped">
         <tr>
             <td>id</td>
