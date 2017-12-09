@@ -5,15 +5,15 @@ import com.iba.project.entity.person.Person;
 import java.math.BigDecimal;
 
 public class Book {
-    Person auther = null;
+    Person author = null;
     String name;
     BigDecimal price = null;
 
     public Book() {
     }
 
-    public Book(Person auther, String name, BigDecimal price) {
-        auther = new Person(auther.getName(), auther.getLastName());
+    public Book(Person author, String name, BigDecimal price) {
+        this.author = new Person(author.getName(), author.getLastName());
 
         this.name = name;
 
@@ -26,7 +26,7 @@ public class Book {
     }
 
     public Person getAuther() {
-        return auther;
+        return author;
     }
 
     public BigDecimal getPrice() {
@@ -38,7 +38,7 @@ public class Book {
     }
 
     public void setAuther(Person auther) {
-        this.auther = auther;
+        this.author = auther;
     }
 
     public void setPrice(BigDecimal price) {
@@ -52,14 +52,14 @@ public class Book {
 
         Book book = (Book) o;
 
-        if (auther != null ? !auther.equals(book.auther) : book.auther != null) return false;
+        if (author != null ? !author.equals(book.author) : book.author != null) return false;
         if (name != null ? !name.equals(book.name) : book.name != null) return false;
         return price != null ? price.equals(book.price) : book.price == null;
     }
 
     @Override
     public int hashCode() {
-        int result = auther != null ? auther.hashCode() : 0;
+        int result = author != null ? author.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
         return result;
@@ -68,7 +68,7 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "auther=" + auther +
+                "auther=" + author +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';

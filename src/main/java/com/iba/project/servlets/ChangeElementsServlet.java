@@ -30,6 +30,18 @@ public class ChangeElementsServlet extends HttpServlet {
                 request.getRequestDispatcher("WEB-INF/views/edit.jsp").forward(request, response);
                 break;
 
+
+            case "Create":
+                UpdateBook.prepareToCreate(request,response);
+                request.getRequestDispatcher("WEB-INF/views/edit.jsp").forward(request, response);
+                break;
+
+            case "Update":
+                UpdateBook.addElement(request,response);
+                request.getRequestDispatcher("WEB-INF/views/view.jsp").forward(request, response);
+                break;
+
+
             default:
                 request.getRequestDispatcher("index.jsp").forward(request, response);
                 break;

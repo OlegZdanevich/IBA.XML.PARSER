@@ -20,7 +20,7 @@
 <div id="uac">
   <form action="upload" method="POST" enctype="multipart/form-data">
     <input type="file" name="file" />
-    <input type="submit" class="btn btn-primary"/>
+    <input type="submit" class="btn btn-primary" value="Send File"/>
   </form>
 </div>
 
