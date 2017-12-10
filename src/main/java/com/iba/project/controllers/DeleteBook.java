@@ -8,7 +8,7 @@ import java.util.List;
 
 public class DeleteBook {
 
-    public static void deleteElement(HttpServletRequest request, HttpServletResponse response) {
+    public static void deleteElement(HttpServletRequest request) {
 
         int idOfElement = Integer.parseInt(request.getParameter("id"));
 

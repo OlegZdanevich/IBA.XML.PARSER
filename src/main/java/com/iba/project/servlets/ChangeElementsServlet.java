@@ -1,6 +1,7 @@
 package com.iba.project.servlets;
 
 import com.iba.project.controllers.DeleteBook;
+import com.iba.project.controllers.SortBook;
 import com.iba.project.controllers.UpdateBook;
 
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ public class ChangeElementsServlet extends HttpServlet {
         switch (action) {
 
             case "Delete":
-                DeleteBook.deleteElement(request, response);
+                DeleteBook.deleteElement(request);
                 request.getRequestDispatcher("WEB-INF/views/view.jsp").forward(request, response);
                 break;
 
@@ -47,6 +48,11 @@ public class ChangeElementsServlet extends HttpServlet {
                     request.getRequestDispatcher("WEB-INF/views/view.jsp").forward(request, response);
                 }
 
+                break;
+
+            case "Sort":
+                SortBook.sort(request);
+                request.getRequestDispatcher("WEB-INF/views/view.jsp").forward(request, response);
                 break;
 
 

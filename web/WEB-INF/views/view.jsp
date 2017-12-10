@@ -26,16 +26,26 @@
     </c:if>
     <table class="table table-striped">
         <tr>
-            <td>id</td>
             <td>Author Name</td>
             <td>Author LastName</td>
             <td>Name</td>
             <td>Price</td>
+            <td>Sort by:</td>
+            <td>
+                <form action="changeElement" method="Post">
+                    <input type="hidden" name="action" value="Sort">
+                    <select name="elements">
+                        <option>Author Name</option>
+                        <option>Author LastName</option>
+                        <option>Name</option>
+                        <option>Price</option>
+                    </select>
+                    <input type="submit" class="btn btn-success btn-sm" value="Sort">
+                </form>
+            </td>
         </tr>
         <c:forEach var="elem" items="${sessionScope.xmlTable}" varStatus="status">
             <tr>
-
-                <td><c:out value="${ status.count }"/></td>
                 <td><c:out value="${ elem.auther.name }"/></td>
                 <td><c:out value="${ elem.auther.lastName }"/></td>
                 <td><c:out value="${ elem.name }"/></td>
