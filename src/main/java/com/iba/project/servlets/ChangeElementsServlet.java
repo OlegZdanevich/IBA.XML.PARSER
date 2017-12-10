@@ -1,6 +1,7 @@
 package com.iba.project.servlets;
 
 import com.iba.project.controllers.DeleteBook;
+import com.iba.project.controllers.SaveBook;
 import com.iba.project.controllers.SortBook;
 import com.iba.project.controllers.UpdateBook;
 
@@ -50,6 +51,10 @@ public class ChangeElementsServlet extends HttpServlet {
 
                 break;
 
+            case "Save":
+                SaveBook.saveBook(request,response);
+                request.getRequestDispatcher("WEB-INF/views/view.jsp").forward(request, response);
+                break;
             case "Sort":
                 SortBook.sort(request);
                 request.getRequestDispatcher("WEB-INF/views/view.jsp").forward(request, response);

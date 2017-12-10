@@ -77,6 +77,18 @@
         <input type="hidden" name="action" value="Create">
         <input type="submit" class="btn btn-primary btn-lg" value="Create">
     </form>
+
+    <form action="changeElement" method="Post" class="form-inline" role="form">
+        <input type="hidden" name="action" value="Save">
+        <div class="form-group">
+            <input name="filename" class="form-control" placeholder="New Name For File" pattern="[a-z0-9._%+-]+.xml">
+        </div>
+
+        <div class="form-group">
+        <input type="submit" class="btn btn-success btn-lg" value="Save">
+        </div>
+    </form>
+
 </div>
 
 </body>

@@ -1,4 +1,4 @@
-package com.iba.project.parser;
+package com.iba.project.xml.parser;
 
 import com.iba.project.entity.book.Book;
 import com.iba.project.entity.person.Person;
@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParserXML {
+
     public static List<Book> parse(InputStream stream) {
 
         try {
@@ -24,6 +25,7 @@ public class ParserXML {
             return parseToTable(reader);
 
         } catch (XMLStreamException exception) {
+
             //TO DO LOG
         }
         return new ArrayList<>();
@@ -94,6 +96,7 @@ public class ParserXML {
         }
 
 
+        reader.close();
         return books;
     }
 }
