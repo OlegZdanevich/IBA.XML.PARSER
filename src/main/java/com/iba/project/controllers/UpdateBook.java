@@ -5,7 +5,6 @@ import com.iba.project.entity.person.Person;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class UpdateBook {
 
 
     public static boolean addElement(HttpServletRequest request) {
-        boolean allSucsess=true;
+        boolean allSucsess = true;
 
         try {
             String authorName = request.getParameter("inputNameAuthor");
@@ -59,12 +58,11 @@ public class UpdateBook {
 
         } catch (NumberFormatException exception) {
             log.trace("Not a number id", exception);
-            allSucsess=false;
+            allSucsess = false;
         } catch (IllegalArgumentException exception) {
             log.trace("Id should be greater then zero", exception);
-            allSucsess=false;
-        }
-        finally {
+            allSucsess = false;
+        } finally {
             request.getSession().removeAttribute("id");
             request.getSession().removeAttribute("book");
             return allSucsess;

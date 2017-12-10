@@ -25,7 +25,7 @@ public class Book {
         return name;
     }
 
-    public Person getAuther() {
+    public Person getAuthor() {
         return author;
     }
 
@@ -37,8 +37,8 @@ public class Book {
         this.name = name;
     }
 
-    public void setAuther(Person auther) {
-        this.author = auther;
+    public void setAuthor(Person author) {
+        this.author = author;
     }
 
     public void setPrice(BigDecimal price) {

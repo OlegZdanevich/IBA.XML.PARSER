@@ -22,6 +22,11 @@
     <c:if test="${requestScope.status==-1}">
         <h3>You Should Download Only XML files</h3>
     </c:if>
+
+    <c:if test="${requestScope.status==-2}">
+        <h3>Cannot Download File</h3>
+    </c:if>
+
     <form action="upload" method="POST" enctype="multipart/form-data">
         <input type="file" name="file"/>
         <input type="submit" class="btn btn-primary" value="Send File"/>

@@ -24,6 +24,10 @@
     <c:if test="${requestScope.answer==-1}">
         <h3>There some problems with editing</h3>
     </c:if>
+
+    <c:if test="${requestScope.answer==-2}">
+        <h3>There some problems with downloading of file</h3>
+    </c:if>
     <table class="table table-striped">
         <tr>
             <td>Author Name</td>

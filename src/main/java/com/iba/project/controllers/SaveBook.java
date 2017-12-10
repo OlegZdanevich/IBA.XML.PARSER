@@ -2,37 +2,51 @@ package com.iba.project.controllers;
 
 import com.iba.project.entity.book.Book;
 import com.iba.project.xml.creater.CreateXML;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.stream.XMLStreamWriter;
 import java.io.*;
 import java.util.List;
 
 public class SaveBook {
 
-    public static void saveBook(HttpServletRequest request,HttpServletResponse response) {
+    private static final Logger log = Logger.getLogger(SaveBook.class);
 
-        String newName= (String) request.getParameter("filename");
+    public static boolean saveBook(HttpServletRequest request, HttpServletResponse response) {
+
+        String newName = (String) request.getParameter("filename");
 
 
         List<Book> books = (List<Book>) request.getSession().getAttribute("xmlTable");
 
-        String data= CreateXML.createStreamWriter(books);
+        String data = CreateXML.createStreamWriter(books);
 
-        response.setContentType("text/csv");
-        response.setHeader("Content-Disposition", "attachment; filename=\""+newName+"\"");
+        boolean result=true;
 
-        try ( OutputStream outputStream = response.getOutputStream();){
 
+        try (OutputStream outputStream = response.getOutputStream();) {
+
+            response.setContentType("text/xml");
+            response.setHeader("Content-Disposition", "attachment; filename=\"" + newName + "\"");
+
+            if (data==null) throw new NullPointerException();
             outputStream.write(data.getBytes());
             outputStream.flush();
 
         }
-        catch (IOException exception)
+        catch (NullPointerException exception)
         {
-            //to do
+            log.trace("Try to download null",exception);
+
+            result=false;
+        }
+        catch (IOException exception) {
+            log.trace("Cannot create file to download", exception);
+
+            result=false;
         }
 
+        return result;
     }
 }

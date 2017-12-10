@@ -16,19 +16,15 @@ import java.util.List;
 
 public class ParserXML {
 
-    public static List<Book> parse(InputStream stream) {
+    public static List<Book> parse(InputStream stream) throws XMLStreamException {
 
-        try {
-            XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-            XMLEventReader reader = inputFactory.createXMLEventReader(stream);
 
-            return parseToTable(reader);
+        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
+        XMLEventReader reader = inputFactory.createXMLEventReader(stream);
+        reader.close();
 
-        } catch (XMLStreamException exception) {
+        return parseToTable(reader);
 
-            //TO DO LOG
-        }
-        return new ArrayList<>();
 
     }
 
@@ -42,11 +38,9 @@ public class ParserXML {
         while (reader.hasNext()) {
 
 
-
             XMLEvent xmlEvent = reader.nextEvent();
             if (xmlEvent.isStartElement()) {
                 StartElement startElement = xmlEvent.asStartElement();
-
 
 
                 if (startElement.getName().getLocalPart().equals("nameAuthor")) {
@@ -88,7 +82,7 @@ public class ParserXML {
             if (xmlEvent.isEndElement()) {
                 EndElement endElement = xmlEvent.asEndElement();
                 if (endElement.getName().getLocalPart().equals("book")) {
-                    book.setAuther(auther);
+                    book.setAuthor(auther);
                     books.add(book);
                 }
 
@@ -96,7 +90,7 @@ public class ParserXML {
         }
 
 
-        reader.close();
+
         return books;
     }
 }
